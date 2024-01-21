@@ -1,0 +1,17 @@
+service: "notifications-push"
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  region: eu-west-1
+  stage: local
+  runtime: go1.x
+
+functions:
+  Notify:
+    name: notify
+    handler: functions/notify.go
+    events:
+      - schedule: rate(1 minute)

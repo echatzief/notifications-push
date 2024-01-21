@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  notifications-push-database:
+    container_name: notifications-push-database
+    image: postgres:16.0-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=user
+      - POSTGRES_DB=notifications_push
+    volumes:
+      - notifications-push-database-volume:/var/lib/postgresql/data
+volumes:
+  notifications-push-database-volume:
